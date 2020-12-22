@@ -1,0 +1,6 @@
+diff -ur A/test.txt B/test.txt
+--- A/test.txt	2020-12-22 12:04:46.576972400 +0100
++++ B/test.txt	2020-12-22 12:06:46.311292000 +0100
+@@ -1 +1,2 @@
+ This is a test file.
++But it's not the only test file.

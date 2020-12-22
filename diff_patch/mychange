@@ -1,0 +1,5 @@
+--- A.txt	2020-12-22 11:14:26.722488000 +0100
++++ B.txt	2020-12-22 11:15:44.801673200 +0100
+@@ -1 +1,2 @@
+ This is the only line.
++Actually that is not true. Here's another line.

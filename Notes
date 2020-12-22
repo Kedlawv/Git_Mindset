@@ -1,4 +1,57 @@
 Git Mindset
 Hashing -> function that takes an input if arbitrary size and produces output of fixed size
 Hash collision -> when a number of different inputs produce same output
-SHA-256 -> a hashing function royalty free with very low odd for collision -> output is 256 digits long
+SHA-256 -> a hashing function royalty free with very low odds for collision and fast
+
+Blob -> Binary Large OBject
+
+GitBash
+Vim
+    name.txt -> create a new file from GitBash
+    :wq - save and exit
+    :qa - exit without saving  (QuitAll)
+
+cat name.txt => print contents of the file to console | stand for concatenate
+diff -u A.txt B.txt => show the differance between two files -u stands for Unified format
+diff -u A.txt B.txt > fileName => dump the output of the diff into a file
+patch A.txt mychange => patch a file where mychange is a file produced by diff
+    (add changes from the difference to file A)
+
+pwd => present working directory
+ls -l => list long format -> show contents of a directory with details
+
+touch => change file access and modification times | if a file doesn't exist it is created
+files starting with '.' like .hidden are hidden
+ls -a shows all files including hidden ones
+we can combine flags , instead of ls -l -a we can just write ls -la
+ls -alR => R will list recursively
+. current directory
+.. parent directory
+
+echo => send anything as standard output
+echo some text > filename => will set the contents of a file to the output of echo
+echo more text >> filename => will append
+| is a pipe operator, it takes standard output of a preceding command and passes it as standard input
+    to the following command
+> operator is a shortcut for '| tee'
+i.e echo some text | tee file => pipe operator will take standard output of the echo and pass it as standard input
+    to the tee command
+
+tee => utility that copies standard input to standard output, making a copy in zero or more files
+find . show directory structure from current directory
+
+rm -rf => rm remove r recursive f force - will not ask for confirmation ! Warning be very careful will rf !
+
+The folder where we set up a project is called 'Project working directory' aka working tree
+    inside of it will be created .git directory and that is the repository where all versions are kept
+
+git status
+git add <filename>
+git commit
+git config --global --list show configured user and email
+git show
+git commit -m "add commit message as part of the command" => no need to go thru text editor
+git show "HEAD:readme.txt" show contents of a file
+git show "HEAD:" show commit tree
+git log => shows all commits from HEAD to master
+git help command or git command --help => documentation for any command
