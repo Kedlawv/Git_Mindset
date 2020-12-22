@@ -1,0 +1,4 @@
+Git Mindset
+Hashing -> function that takes an input if arbitrary size and produces output of fixed size
+Hash collision -> when a number of different inputs produce same output
+SHA-256 -> a hashing function royalty free with very low odd for collision -> output is 256 digits long
