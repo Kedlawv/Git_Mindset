@@ -55,3 +55,22 @@ git show "HEAD:readme.txt" show contents of a file
 git show "HEAD:" show commit tree
 git log => shows all commits from HEAD to master
 git help command or git command --help => documentation for any command
+git add -A => stage all changes
+
+git add => adds files from the working tree to a staging area
+Staging Area = the Index = the Cache => the commit to be
+
+git reset => move the head to earlier commit
+git reset --soft => moves the head but doesn't change any of the files in the working tree (uncommits changes)
+git reset --hard => moves the head and restores the files to the point of reset (discards any changes that were made
+    after the moved to commit)
+
+After a soft reset the changes since the reset to commit will be staged
+git restore --staged * => will unstage all changes (* stands for all)
+
+git add -interactive || git add -i => we can choose parts of the changes to stage from one file
+
+git checkout <branch> => switch to a branch - restore files in the working tree
+
+DAG => directional acyclic graph
+
