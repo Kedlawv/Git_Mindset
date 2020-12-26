@@ -74,3 +74,85 @@ git checkout <branch> => switch to a branch - restore files in the working tree
 
 DAG => directional acyclic graph
 
+HEAD => The HEAD in Git is the pointer to the current branch reference,
+        which is in turn a pointer to the last commit you made or the last commit that was checked out
+        into your working directory. That also means it will be the parent of the next commit you do.
+HEAD points to the current branch
+Git HEAD is a pointer to the local branch you're currently on (like master[main])
+HEAD always refers to the most recent commit on the current branch. When you change branches, HEAD is updated
+        to refer to the new branch’s latest commit.
+HEAD is a parent of the next commit
+
+Detached HEAD => means that it is not attached to any branch, i.e. it points directly to some commit. In other words:
+                If it points to a commit directly, the HEAD is detached.
+Branch => represents the tip of a series of commits - it's not a container for commits.
+
+git branch => shows the list of all branches the * show what branch the head file points to
+git branch <name> => creates a new branch but does not move the HEAD
+git checkout <nameOfBranch> moves the HEAD to the branch
+git branch --delete <name> => delete branch -> cannot delete checked out branch
+git checkout -b <name> => create a new branch and checkout
+git switch -c <name> => same as checkout | it's a new command that is experimental at this time
+
+git commit -am <message> creates a new commit and adds all unstaged changes
+
+git log <branchName> <branchName> <branchName> => will log all the branches put as parameters no lineage of commits
+git log -- graph <branchName> <branchName> <branchName> same but shows commit tree
+git log --graph --all => list all branches
+git log -- <fileName> => show commits for a specific file
+git log --patch -- <fileName> => also shows the changes made to the files
+git log -G "word appearing in the commit" -- <fileName> => search commit for a specific word in a specific file
+
+MERGE
+Fast forward => if master branch has no changes since the new branch | The master branch will point to the head
+    of the new branch that is being merged in to master
+git merge <branchName>
+git reset --hard <branchName> would achieve the same result
+
+Merge commit AKA Three way merge => when master has changes unreachable by another branch | The new commit will have two parents
+    => the commit master was pointing at before merge and the head of the branch merged in to master
+    the command is the same git merge <branchName> (HEAD needs to point at master branch)
+
+git merge --abort => in case of a merge conflict the commit will be half committed, we can either resolve the conflict
+    manually or abort
+
+Tags => a reference to a commit
+semver => semantic versioning
+Basics of semver :
+major.minor.patch
+If the API of the new version is not backwards compatible with the previous version than we increment the major and zero
+    out minor and patch 1.2.3 => 2.0.0
+If API is backwards compatible and the new version adds functionality than we increment the minor and zero out patch
+    => 1.2.3 => 1.3.0
+If changes are only bugfixing we increment only patch number 1.2.3 => 1.2.4
+-----------------------------------------------------------------------------------------------------------------------
+Simple tag cannot store any metadata and points directly to the commit
+Annotated Tag can | it still creates a simple tag but the tag is pointing the annotation and the annotation is pointing
+    to the commit
+git tag <name> => creates a simple tag on the commit that the head is currently pointing at
+git tag => show all tags
+git tag -d <tagName> => delete tag
+
+git tag -a <tagName> => creates an annotated tag
+git show <tagName> => show details of the annotated tag and the commit it's attached to
+
+git clone <directory_to_be_cloned> <destination_directory>
+git remote -v => shows the origin name and url
+
+git branch -v => v stands for verbose -> more information
+git branch -av => will show all branches including remotes
+
+git config --list => repo details like user and remote url also in .git/config file
+
+git fetch => will download commits, files and refs from the remote in to local repo. It shows the state of the central
+    history. It has no effect on the local development.
+    It doesn't move local master or head nor does it merge
+
+git pull => works like fetch but it will initiate a merge
+
+We can add to a branch on origin master by creating a local branch with the same name and git will automatically
+    track the branch on the origin remote
+
+git push => with no parameters equates to :
+git push origin refs/heads/master:refs/heads/master => push to origin remote ref/heads/master our local refs/heads/master
+git push --tag => tags are not pushed by default
